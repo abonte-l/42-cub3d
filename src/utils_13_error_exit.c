@@ -5,14 +5,14 @@ void	ft_exit_sucess(t_info *info, char *str)
 	if (info->cross_cl == 1 || info->escp_cl == 1)
 	{
 		str = EXIT_GAME;
-		write(1, "\n\n", 11);
+		write(1, "\n\n", 2);
 		write(1, str, ft_strlen(str));
 		write(1, "\n\n", 2);
 	}
 	if (info->save_enbld == 1)
 	{
 		str = SAVE_OK;
-		write(1, "\n\n", 11);
+		write(1, "\n\n", 2);
 		write(1, str, ft_strlen(str));
 		write(1, "\n\n", 2);
 	}
@@ -21,7 +21,7 @@ void	ft_exit_sucess(t_info *info, char *str)
 int		ft_exit(t_info *info)
 {	
 	char	*str;
-	// write(1, "PROUT01",7);
+	
 	str = NULL;
 	if (info->data.img)
 		mlx_destroy_image(info->data.mlx_ptr, info->data.img);
@@ -54,7 +54,6 @@ void	ft_free_var_2(t_info *info)
 		free(info->s.zbuffer);
 	if (info->s.order)
 		free(info->s.order);
-	
 	ft_exit(info);
 }
 
@@ -79,11 +78,10 @@ void	ft_free_var_1(t_info *info, char *str)
 		while (++i < info->nb_line)
 			free(info->map[i]);
 	}
-	
 	if (str == ARG_ERROR || str == DATA_ERROR || str == FILE_ERROR || str == MAP_ERROR || str == NO_MAP_ERROR || str == SAVE_OK || str == BMP_ERROR)
 		{
-			write(1, "PROUT01",7);
-			ft_exit(info);
+			ft_exit_sucess(info, str);
+			exit(0);
 		}
 	else
 		ft_free_var_2(info);

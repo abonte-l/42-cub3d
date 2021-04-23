@@ -23,28 +23,18 @@ static int		check_backslash_n(char *buf, char *rest)
 int				cpy_lastline(int ret, char **line, char *rest, char *buf)
 {
 	int		i;
-	char	*tmp;
 
 	i = check_backslash_n(buf, rest);
 	if (ret == 0 && i != -1)
 	{
 		rest[i] = '\0';
-		*line = ft_strdup(rest);
-		tmp = ft_strdup(rest + (i + 1));
-		free(rest);
-		rest = NULL;
-		rest = ft_strdup(tmp);
-		free(rest);
-		rest = NULL;
-		free(tmp);
-		tmp = NULL;
+		*line = rest;
+		rest = ft_strdup(*line + (i + 1));
 		return (ONE_LINE_READ);
 	}
 	else
 	{
 		*line = ft_strdup(rest);
-		free(rest);
-		rest = NULL;
 		return (END_OF_FILE);
 	}
 }
@@ -60,17 +50,15 @@ int				read_line(int fd, char **line)
 	while ((ret = read(fd, buf, BUFFER_SIZE)) > 0 || i != -1)
 	{
 		buf[ret] = '\0';
-		tmp = ft_strjoin(rest, buf);
-		rest = tmp;
+		tmp = rest;
+		rest = ft_strjoin(tmp, buf);
+		free(tmp);
 		i = check_backslash_n(buf, rest);
 		if (i >= 0)
 		{
 			rest[i] = '\0';
-			*line = ft_strdup(rest);
-			tmp = ft_strdup(rest + (i + 1));
-			free(rest);
-			rest = ft_strdup(tmp);
-			free(tmp);
+			*line = rest;
+			rest = ft_strdup(*line + (i +1));
 			return (ONE_LINE_READ);
 		}
 	}
