@@ -1,5 +1,17 @@
-// #include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_04_parsing_data.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:57:44 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 22:01:50 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
+
 int		ft_str_s_char(const char *str, char c)
 {
 	int i;
@@ -19,7 +31,7 @@ int		ft_str_s_char(const char *str, char c)
 double	power(double base, double exponent)
 {
 	double result;
-	
+
 	result = 1;
 	while (exponent > 0)
 	{
@@ -27,12 +39,12 @@ double	power(double base, double exponent)
 		exponent--;
 	}
 	return (result);
-
 }
 
 int		check_whitespace(char c)
 {
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\v'	|| c == '\r' || c == '\f')
+	if (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\v' || c == '\r' || c == '\f')
 		return (1);
 	else
 		return (0);
@@ -55,12 +67,10 @@ int		ft_atoi_r(char *str, t_info *info)
 	{
 		if (result > 21474636)
 			ft_error(DATA_ERROR, info);
-			
 		result = (result * 10 + str[info->i] - 48);
 		info->i++;
 	}
 	return (result);
-
 }
 
 int		ft_atoi_c(char *str, t_info *info)
@@ -75,7 +85,6 @@ int		ft_atoi_c(char *str, t_info *info)
 			ft_error(DATA_ERROR, info);
 		if (str[info->i] == ',')
 			info->i++;
-		
 		if (str[info->i] == '-' || str[info->i] == '+')
 			ft_error(DATA_ERROR, info);
 		info->color_tmp = 0;
@@ -92,4 +101,3 @@ int		ft_atoi_c(char *str, t_info *info)
 	}
 	return (info->color_result);
 }
-

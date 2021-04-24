@@ -1,8 +1,19 @@
-// #include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:52:03 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:52:32 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int		main(int ac, char **av)
-{	
+{
 	t_info	info;
 
 	ft_init_info_1(&info);
@@ -16,5 +27,3 @@ int		main(int ac, char **av)
 		ft_error(ARG_ERROR, &info);
 	return (0);
 }
-
-

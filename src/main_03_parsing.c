@@ -1,4 +1,16 @@
-#include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_03_parsing.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:26:19 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:27:54 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
 
 /*
 ** here we check if the file is not a directory and if we can open it
@@ -10,7 +22,6 @@
 ** others are in the main path or from libs included
 */
 
-
 void	ft_parsing(char *fichier, t_info *info)
 {
 	int		fd;
@@ -19,11 +30,11 @@ void	ft_parsing(char *fichier, t_info *info)
 
 	ret = 1;
 	str = NULL;
-	if ((fd =open(fichier, __O_DIRECTORY)) != -1)
+	if ((fd = open(fichier, __O_DIRECTORY)) != -1)
 		ft_error(FILE_ERROR, info);
-	if ((fd =open(fichier, O_RDONLY)) == -1)
+	if ((fd = open(fichier, O_RDONLY)) == -1)
 		ft_error(FILE_ERROR, info);
-	while (ret != 0 )
+	while (ret != 0)
 	{
 		ret = get_next_line(fd, &str);
 		ft_collect_data(str, info);

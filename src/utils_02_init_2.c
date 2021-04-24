@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_02_init_2.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:55:46 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:56:58 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "../inc/cub3d.h"
 #include "cub3d.h"
+
 void	ft_init_in_ftmlx(t_info *info)
 {
 	if (!(info->s.zbuffer = (double *)malloc(sizeof(double) * info->r_x)))
@@ -25,7 +36,6 @@ void	ft_init_in_ftmlx(t_info *info)
 	info->texture[3].img = NULL;
 	info->texture[4].img = NULL;
 	info->data.mlx_win = NULL;
-	
 	ft_init_dir(info);
 }
 
@@ -71,16 +81,13 @@ void	ft_init_sprite(t_info *info)
 
 	i = -1;
 	info->s.nbspr = 0;
-	// ft_verify_errors(info);
 	while (++i < info->nb_line)
 	{
 		j = -1;
 		while (++j < info->len_line)
 		{
 			if (info->map[i][j] == '2')
-				{
-					info->s.nbspr += 1;
-				}
+				info->s.nbspr += 1;
 		}
 	}
 	if (!(info->sxy = (t_sprxy *)malloc(sizeof(t_sprxy) * info->s.nbspr)))

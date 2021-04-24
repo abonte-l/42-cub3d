@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_09_handle_keys.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 22:19:20 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 22:19:30 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "../inc/cub3d.h"
 #include "cub3d.h"
+
 int		ft_handle_keypress(int keycode, t_info *info)
 {
 	if (keycode == MOVE_FORWARD)
@@ -39,4 +50,3 @@ int		ft_handle_keyrelease(int keycode, t_info *info)
 		info->data.rotate_right = 0;
 	return (1);
 }
-

@@ -1,9 +1,21 @@
-#include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_05_parsing_textures.c                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:32:43 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:38:15 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
 
 /*
-** here we get path of textures and sprite 
+** here we get path of textures and sprite
 ** we also check if the path is correct
-** you'll find ft_str_s_char in "utils_02" 
+** you'll find ft_str_s_char in "utils_02"
 ** you'll find ft_strlen2 and ft_strcpy_texture in "utils_3"
 ** you'll find ft_check_error in "utils_08"
 */
@@ -13,19 +25,19 @@ int		ft_get_texture_path(char *str, char **path, t_info *info, int j)
 	info->count_tex = 0;
 	if (*path != NULL)
 		ft_error(DATA_ERROR, info);
-	if (ft_str_s_char(str, '.') == 0 || ft_str_s_char(str, '/') == 0 || ft_strlen2(str) <= 2)
+	if (ft_str_s_char(str, '.') == 0 ||
+		ft_str_s_char(str, '/') == 0 || ft_strlen2(str) <= 2)
 		ft_error(DATA_ERROR, info);
-	while(str[j] != '.')
+	while (str[j] != '.')
 	{
 		if (str[j] == ' ' && str[j] == '.')
 			ft_error(DATA_ERROR, info);
 		j++;
 	}
-	if (!(*path = (char *) malloc(sizeof(char) * (ft_strlen2(str) + 1))))
+	if (!(*path = (char *)malloc(sizeof(char) * (ft_strlen2(str) + 1))))
 		ft_error(MEMORY_ERROR, info);
 	ft_strcpy_texture(*path, str, info, j);
 	return (0);
-
 }
 
 void	ft_texture_alloc(char *str, t_info *info)
@@ -47,5 +59,4 @@ void	ft_texture_alloc(char *str, t_info *info)
 			&& str[0] != 'R' && str[0] != 'F' && str[0] != 'C'
 			&& str[0] > 65 && str[0] < 122)
 		ft_error(DATA_ERROR, info);
-		
 }

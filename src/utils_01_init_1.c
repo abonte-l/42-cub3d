@@ -1,4 +1,15 @@
-// #include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_01_init_1.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:53:13 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:55:29 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 void	ft_init_info_3(t_info *info)
@@ -24,11 +35,10 @@ void	ft_init_info_2(t_info *info)
 	info->count_player = 0;
 	info->r_verif = 0;
 	info->check_line_map = 0;
-	info->check_col_map	= 0;
+	info->check_col_map = 0;
 	info->escp_cl = 0;
 	info->cross_cl = 0;
 	ft_init_info_3(info);
-
 }
 
 void	ft_init_info_1(t_info *info)

@@ -1,5 +1,17 @@
-// #include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_01_get_next_line.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:22:02 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:23:44 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
+
 static int		check_backslash_n(char *buf, char *rest)
 {
 	size_t			i;
@@ -58,7 +70,7 @@ int				read_line(int fd, char **line)
 		{
 			rest[i] = '\0';
 			*line = rest;
-			rest = ft_strdup(*line + (i +1));
+			rest = ft_strdup(*line + (i + 1));
 			return (ONE_LINE_READ);
 		}
 	}

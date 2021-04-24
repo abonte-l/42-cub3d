@@ -1,4 +1,16 @@
-#include "../inc/cub3d.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_05_parsing_data.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 22:02:12 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 22:05:39 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d.h"
 
 int		ft_strlen2(char *str)
 {
@@ -47,19 +59,21 @@ void	ft_collect_data(char *str, t_info *info)
 		info->check_data.color_ceiling += 1;
 	else if (str[0] == 'F')
 		info->check_data.color_floor += 1;
-	
 }
 
 void	ft_check_data(t_info *info)
 {
-	if (info->check_data.resolution != 1 || info->check_data.text_north != 1 || info->check_data.text_south != 1 || info->check_data.text_east != 1 || info->check_data.text_west != 1 || info->check_data.text_sprite != 1 || info->check_data.color_floor != 1 || info->check_data.color_ceiling != 1)
+	if (info->check_data.resolution != 1 || info->check_data.text_north != 1 ||
+	info->check_data.text_south != 1 || info->check_data.text_east != 1 ||
+	info->check_data.text_west != 1 || info->check_data.text_sprite != 1 ||
+	info->check_data.color_floor != 1 || info->check_data.color_ceiling != 1)
 		ft_error(DATA_ERROR, info);
 }
 
 int		ft_check_wrg_char_c(char *str, t_info *info)
 {
-	int 			i;
-	int 			j;
+	int				i;
+	int				j;
 	unsigned char	c;
 
 	i = info->i;
@@ -68,7 +82,7 @@ int		ft_check_wrg_char_c(char *str, t_info *info)
 	while (str[i])
 	{
 		c = str[i];
-		if (c != ',' && ( c < '0' || c > '9' ))
+		if (c != ',' && (c < '0' || c > '9'))
 			return (1);
 		i++;
 	}
@@ -81,8 +95,6 @@ int		ft_check_wrg_char_c(char *str, t_info *info)
 		i++;
 	}
 	if (j != 2)
-		
 		return (1);
 	return (0);
 }
-

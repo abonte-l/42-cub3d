@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_09_save_to_bmp.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonte-l <abonte-l@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/24 21:50:34 by abonte-l          #+#    #+#             */
+/*   Updated: 2021/04/24 21:51:15 by abonte-l         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-// #include "../inc/cub3d.h"
 #include "cub3d.h"
+
 void	ft_header(t_info *info, int fd)
 {
 	int	tmp;
@@ -53,4 +64,3 @@ void	ft_save_to_bmp(t_info *info)
 	system("chmod 777 image.bmp");
 	ft_free_var_1(info, SAVE_OK);
 }
-
