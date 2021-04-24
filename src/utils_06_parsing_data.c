@@ -12,9 +12,32 @@ int		ft_check_wrg_char_r(char *str)
 	while (str[i])
 	{
 		c = str[i];
-		if ((c <= 33 && c >= 43 )||(c <= 45 && c >= 48) ||(c <= 58 && c >= 177))
+		if ((c <= 33 && c >= 43 )||(c <= 45 && c >= 48) ||(c <= 58 && c >= 127))
 		return (1);
 		i++;
 	}
 	return (0);
+}
+
+void	ft_check_space_line(char *str, t_info *info)
+{
+	int i;
+	int j;
+	int k;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	if (str[i] != 0)
+	{
+		while (str[i])
+		{
+			if (check_whitespace(str[i]) == 0)
+				j = 1;
+			i++;
+		}
+		if (j == 0)
+			ft_error(DATA_ERROR, info);
+	}
+	
 }

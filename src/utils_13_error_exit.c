@@ -62,7 +62,7 @@ void	ft_free_var_1(t_info *info, char *str)
 	int i;
 
 	i = -1;
-	
+	// write(1,"prout33\n",8);
 	if (info->no)
 		free(info->no);
 	if (info->so)
@@ -75,11 +75,12 @@ void	ft_free_var_1(t_info *info, char *str)
 		free(info->sp);
 	if (info->map)
 	{
-		while (++i < info->nb_line)
+		while (++i < info->nb_line && info->map[i])
 			free(info->map[i]);
 	}
 	if (str == ARG_ERROR || str == DATA_ERROR || str == FILE_ERROR || str == MAP_ERROR || str == NO_MAP_ERROR || str == SAVE_OK || str == BMP_ERROR)
 		{
+			// write(1,"prout44\n",8);
 			ft_exit_sucess(info, str);
 			exit(0);
 		}
@@ -89,7 +90,9 @@ void	ft_free_var_1(t_info *info, char *str)
 
 void 	ft_error(char *str, t_info *info)
 {
-	write(1, "\nError :\n\n", 11);
+	// write(1,"prout22\n",8);
+	// printf("%s\n\n",str);
+	write(1, "Error\n", 6);
 	write(1, str, ft_strlen(str));
 	write(1, "\n\n", 2);
 	ft_free_var_1(info, str);

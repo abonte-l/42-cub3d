@@ -23,7 +23,7 @@ SRC =	main.c \
 		utils_12_cub3d.c \
 		utils_13_error_exit.c 
 
-NAME = Cub3D
+NAME = cub3D
 
 MLX_DIR = minilibx-linux
 MLX = libmlx.a 

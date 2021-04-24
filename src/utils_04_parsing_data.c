@@ -55,6 +55,7 @@ int		ft_atoi_r(char *str, t_info *info)
 	{
 		if (result > 21474636)
 			ft_error(DATA_ERROR, info);
+			
 		result = (result * 10 + str[info->i] - 48);
 		info->i++;
 	}
@@ -66,15 +67,15 @@ int		ft_atoi_c(char *str, t_info *info)
 {
 	info->color_result = 0;
 	info->count_color = 2;
-
 	while (str[info->i] && info->count_color >= 0)
 	{
-		if (str[1] != ' ' || ft_check_wrg_char_c(str) == 1)
+		while (check_whitespace(str[info->i]) == 1)
+			info->i++;
+		if (str[1] != ' ' || ft_check_wrg_char_c(str, info) == 1)
 			ft_error(DATA_ERROR, info);
 		if (str[info->i] == ',')
 			info->i++;
-		while (check_whitespace(str[info->i]) == 1)
-			info->i++;
+		
 		if (str[info->i] == '-' || str[info->i] == '+')
 			ft_error(DATA_ERROR, info);
 		info->color_tmp = 0;

@@ -27,6 +27,7 @@ void	ft_init_info_2(t_info *info)
 	info->check_col_map	= 0;
 	info->escp_cl = 0;
 	info->cross_cl = 0;
+	ft_init_info_3(info);
 
 }
 

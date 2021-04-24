@@ -1,5 +1,5 @@
-// #include "../inc/cub3d.h"
-#include "cub3d.h"
+#include "../inc/cub3d.h"
+
 /*
 ** here we check if the file in the argument is a .cub
 ** if not there is an error and the program exit
@@ -13,13 +13,10 @@ int		ft_check_dot_cub(char *str, t_info *info)
 	i = 0;
 	while (str[i])
 		i++;
-	while (str[i] != '.')
-	{
-		i--;
-		if (i == 0)
-			ft_error(ARG_ERROR, info);
-	}
-	if (str[i + 1] == 'c' && str[i + 2] == 'u' && str[i + 3] == 'b')
+	
+	
+	
+	if (str[i - 1] == 'b' && str[i - 2] == 'u' && str[i - 3] == 'c' && str[i - 4] == '.')
 		ft_parsing(str, info);
 	else
 		ft_error(ARG_ERROR, info);
@@ -44,5 +41,3 @@ int		ft_check_save_enabled(char *str)
 	else
 		return (0);
 }
-
-

@@ -78,7 +78,9 @@ void	ft_init_sprite(t_info *info)
 		while (++j < info->len_line)
 		{
 			if (info->map[i][j] == '2')
-				info->s.nbspr += 1;
+				{
+					info->s.nbspr += 1;
+				}
 		}
 	}
 	if (!(info->sxy = (t_sprxy *)malloc(sizeof(t_sprxy) * info->s.nbspr)))

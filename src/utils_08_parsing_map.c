@@ -4,28 +4,21 @@ void	ft_check_edges(t_info *info)
 {
 	int	i;
 	i = 0;
-	while (i <= info->len_line)
+	while (i < info->len_line)
 	{
 		if (info->map[0][i] != '1' && info->map[0][i] != ' ')
-			ft_error(MAP_ERROR, info);
+			ft_error(MAP_ERROR, info);			
 		if (info->map[info->nb_line-1][i] != '1' && info->map[info->nb_line-1][i] != ' ')
-			ft_error(MAP_ERROR, info);
+			 ft_error(MAP_ERROR, info);
 		i++;
 	}
 	i = 1;
 	while (i < info->nb_line)
 	{
 		if (info->map[i][0] != '1' && info->map[i][0] != ' ')
-		{
-		info->map_ex = 1;
-		ft_error(MAP_ERROR, info);
-		}
-			
-		if (info->map[i][info->len_line] != '1' && info->map[i][info->len_line] != ' ')
-		{
-			info->map_ex = 1;
 			ft_error(MAP_ERROR, info);
-		}
+		if (info->map[i][info->len_line-1] != '1' && info->map[i][info->len_line-1] != ' ')
+			ft_error(MAP_ERROR, info);
 		i++;
 	}
 	

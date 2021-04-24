@@ -1,8 +1,9 @@
 #include "../inc/cub3d.h"
+#include <errno.h>
 
 int		ft_put_spaces(int i, int j, t_info *info)
 {
-	while (j <= info->len_line)
+	while (j < info->len_line )
 	{
 		info->map[i][j] = ' ';
 		j++;
@@ -14,15 +15,10 @@ int		ft_fill_in_map(char *str, t_info *info)
 {
 	static int	i = 0;
 	int			j;
-	
+
 	j = 0;
-	info->map[i] = NULL;
 	if (!(info->map[i] = malloc(sizeof(char) * info->len_line + 1)))
-	{
-		info->map_ex = 1;
 		ft_error(MEMORY_ERROR, info);
-	}
-		
 	while (str[j] != '\0')
 	{
 		if (ft_start(str[j], info, i, j) == 1)

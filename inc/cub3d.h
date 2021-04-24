@@ -225,6 +225,7 @@ int		ft_check_dot_cub(char *str, t_info *info);
 ** parsing general
 */
 int		ft_str_s_char(const char *str, char c);
+void	ft_check_space_line(char *str, t_info *info);
 void	ft_check_data(t_info *info);
 void	ft_collect_data(char *str, t_info *info);
 void	ft_parsing(char *fichier, t_info *info);
@@ -232,10 +233,11 @@ void	ft_parsing(char *fichier, t_info *info);
 /*
 ** parsing color / resolution
 */
+int		check_whitespace(char c);
 int		ft_atoi_r(char *str, t_info *info);
 int		ft_atoi_c(char *str, t_info *info);
 int		ft_check_wrg_char_r(char *str);
-int		ft_check_wrg_char_c(char *str);
+int		ft_check_wrg_char_c(char *str, t_info *info);
 void	ft_res_color_parsing(char **str, t_info *info);
 
 /*

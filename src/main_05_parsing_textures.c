@@ -1,5 +1,5 @@
-// #include "../inc/cub3d.h"
-#include "cub3d.h"
+#include "../inc/cub3d.h"
+
 /*
 ** here we get path of textures and sprite 
 ** we also check if the path is correct

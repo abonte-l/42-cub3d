@@ -1,5 +1,5 @@
-// #include "../inc/cub3d.h"
-#include "cub3d.h"
+#include "../inc/cub3d.h"
+
 /*
 ** here we check if the file is not a directory and if we can open it
 ** then we read it with GNL and start collecting datas in the file
@@ -10,11 +10,13 @@
 ** others are in the main path or from libs included
 */
 
+
 void	ft_parsing(char *fichier, t_info *info)
 {
 	int		fd;
 	int		ret;
 	char	*str;
+
 	ret = 1;
 	str = NULL;
 	if ((fd =open(fichier, __O_DIRECTORY)) != -1)
@@ -25,6 +27,7 @@ void	ft_parsing(char *fichier, t_info *info)
 	{
 		ret = get_next_line(fd, &str);
 		ft_collect_data(str, info);
+		ft_check_space_line(str, info);
 		ft_res_color_parsing(&str, info);
 		ft_texture_alloc(str, info);
 		ft_get_map_data(str, info);
