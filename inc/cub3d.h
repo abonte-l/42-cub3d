@@ -214,6 +214,7 @@ int		ft_exit(t_info *info);
 void 	ft_error(char *str, t_info *info);
 void	ft_free_var_1(t_info *info, char *str);
 void	ft_free_var_2(t_info *info);
+void	ft_exit_sucess(t_info *info, char *str);
 
 /*
 **	main

@@ -21,7 +21,8 @@ SRC =	main.c \
 		utils_10_calc_raycasting.c \
 		utils_11_print_and_textures.c \
 		utils_12_cub3d.c \
-		utils_13_error_exit.c 
+		utils_13_error_exit.c \
+		utils_14_error_exit.c
 
 NAME = cub3D
 
